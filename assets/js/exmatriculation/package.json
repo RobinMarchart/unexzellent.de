@@ -1,0 +1,15 @@
+{
+  "name": "exmatriculation",
+  "collaborators": [
+    "Robin Marchart"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "exmatriculation_bg.wasm",
+    "exmatriculation.js",
+    "exmatriculation.d.ts"
+  ],
+  "module": "exmatriculation.js",
+  "types": "exmatriculation.d.ts",
+  "sideEffects": false
+}
