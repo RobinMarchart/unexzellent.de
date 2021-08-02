@@ -23,7 +23,7 @@ jobs:
           toolchain: stable
           profile: minimal
           default: true
-          
+
       - name: setup rust wasm
         uses: actions-rs/toolchain@v1.0.6
         with:
@@ -31,21 +31,22 @@ jobs:
           profile: minimal
           default: true
           target: wasm32-unknown-unknown
-      - name: setup rust cache
-        uses: Swatinem/rust-cache@v1.3.0
-        with: 
-          key: repo
-          working-directory: $GITHUB_WORKSPACE/exmatriculation
       - name: install wasm pack
         run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+      - name: setup rust cache
+        uses: Swatinem/rust-cache@v1.3.0
+        with:
+          key: repo
+          working-directory: exmatriculation
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: build site
         run: mkdir site && cd site && ../build.sh
       - name: deploy page
-        uses: peaceiris/actions-github-pages@b80a30e9bf3c1ec596532c3813f0aff094f555e2
+        uses: crazy-max/ghaction-github-status@v2
         with:
-         github_token: ${{ secrets.GITHUB_TOKEN }}
-         publish_dir: site
-         force_orphan: true
-          
+          build_dir: site
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
