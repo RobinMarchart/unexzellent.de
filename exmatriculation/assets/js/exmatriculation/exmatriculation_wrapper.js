@@ -1,6 +1,6 @@
 
 async function load_library(){
-  const exmatriculation =await import('/assets/js/exmatriculation/exmatriculation.js');
+  const exmatriculation =await import('assets/js/exmatriculation/exmatriculation.js');
   await exmatriculation.default();
   return exmatriculation.PreparedDocument;
 }
@@ -16,7 +16,7 @@ async function load_content(url){
 }
 
 async function document_loader(){
-  let promises=await Promise.all([load_library(),load_content('/assets/webfonts/LiberationSans-Regular.ttf')]);
+  let promises=await Promise.all([load_library(),load_content('assets/webfonts/LiberationSans-Regular.ttf')]);
   return new promises[0](promises[1]);
 }
 
