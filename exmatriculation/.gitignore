@@ -1,0 +1,5 @@
+target
+.log
+pkg
+/assets/js/exmatriculation/
+!/assets/js/exmatriculation/exmatriculation_wrapper.js
