@@ -50,5 +50,15 @@ function exmatriculate(firstname,lastname){
     },
   );
 }
+
+function try_query(){
+  let params = new URLSearchParams(document.location.search.substring(1));
+  let firstname=params.get("firstname");
+  let lastname=params.get("lastname");
+  if(firstname&&lastname)exmatriculate(firstname,lastname);
+}
+
 window.exmatriculate=exmatriculate;
 document.getElementById("unexzellent").onclick=()=>exmatriculate("James","Pond");
+try_query();
+
