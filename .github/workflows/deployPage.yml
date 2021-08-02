@@ -33,13 +33,13 @@ jobs:
           target: wasm32-unknown-unknown
       - name: install wasm pack
         run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
       - name: setup rust cache
         uses: Swatinem/rust-cache@v1.3.0
         with:
           key: repo
           working-directory: exmatriculation
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
       - name: build site
         run: mkdir site && cd site && ../build.sh
       - name: deploy page
