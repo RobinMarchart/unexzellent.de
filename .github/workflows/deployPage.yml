@@ -43,7 +43,7 @@ jobs:
       - name: build site
         run: mkdir site && cd site && ../build.sh
       - name: deploy page
-        uses: crazy-max/ghaction-github-status@v2
+        uses: crazy-max/ghaction-github-pages@v2
         with:
           build_dir: site
           jekyll: false
