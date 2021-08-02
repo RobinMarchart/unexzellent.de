@@ -1,6 +1,6 @@
 
 async function load_library(){
-  const exmatriculation =await import('./assets/js/exmatriculation/exmatriculation.js');
+  const exmatriculation =await import('./exmatriculation.js');
   await exmatriculation.default();
   return exmatriculation.PreparedDocument;
 }
